@@ -77,11 +77,11 @@ require('lazy').setup({
     },
   },
 
-  { -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
+  { 
+    'kaiuri/nvim-juliana',
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'onedark'
+      vim.cmd.colorscheme 'juliana'
     end,
   },
 
@@ -139,7 +139,6 @@ require('lazy').setup({
       pcall(require('nvim-treesitter.install').update { with_sync = true })
     end,
   },
-  { 'ThePrimeagen/harpoon' },
   { 'mbbill/undotree' },
   {
     "stevearc/dressing.nvim",

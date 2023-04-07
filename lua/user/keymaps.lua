@@ -2,6 +2,8 @@ local map = vim.api.nvim_set_keymap
 local vmap = vim.keymap.set
 local options = { noremap = true, silent = true }
 
+require('telescope').load_extension('harpoon')
+
 -- Window Nav
 map('n', '<C-h>', '<C-w>h', options)
 map('n', '<C-j>', '<C-w>j', options)
@@ -41,6 +43,7 @@ vmap('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]ear
 vmap('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vmap('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vmap('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+vmap('n', '<leader>sk', require('telescope.builtin').keymaps, { desc = '[S]earch [K]eymaps' })
 
 -- Diagnostic keymaps
 vmap('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
@@ -61,3 +64,17 @@ vmap('n', '<leader>cf', ':DiffCommitFile<CR>', { desc = 'Search [C]ommit [F]ile'
 -- Stay in indent mode
 map("v", "<", "<gv", options)
 map("v", ">", ">gv", options)
+
+-- Harpoon keymaps
+local mark = require("harpoon.mark")
+local ui = require("harpoon.ui")
+
+vim.keymap.set("n", "<leader>a", mark.add_file)
+vim.keymap.set("n", "<leader>am", ui.toggle_quick_menu)
+
+vmap('n', '<leader>al', "<cmd>Telescope harpoon marks<CR>", { desc = 'Telescope Harpoon Marks' })
+
+vim.keymap.set("n", "<leader>a1", function() ui.nav_file(1) end)
+vim.keymap.set("n", "<leader>a2", function() ui.nav_file(2) end)
+vim.keymap.set("n", "<leader>a3", function() ui.nav_file(3) end)
+vim.keymap.set("n", "<leader>a4", function() ui.nav_file(4) end)
