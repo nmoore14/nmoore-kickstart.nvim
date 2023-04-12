@@ -69,12 +69,12 @@ map("v", ">", ">gv", options)
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 
-vim.keymap.set("n", "<leader>a", mark.add_file)
-vim.keymap.set("n", "<leader>am", ui.toggle_quick_menu)
+vmap("n", "<leader>a", mark.add_file)
+vmap("n", "<leader>am", ui.toggle_quick_menu)
 
 vmap('n', '<leader>al', "<cmd>Telescope harpoon marks<CR>", { desc = 'Telescope Harpoon Marks' })
 
-vim.keymap.set("n", "<leader>a1", function() ui.nav_file(1) end)
-vim.keymap.set("n", "<leader>a2", function() ui.nav_file(2) end)
-vim.keymap.set("n", "<leader>a3", function() ui.nav_file(3) end)
-vim.keymap.set("n", "<leader>a4", function() ui.nav_file(4) end)
+vmap("n", "<leader>a1", function() ui.nav_file(1) end)
+vmap("n", "<leader>a2", function() ui.nav_file(2) end)
+vmap("n", "<leader>a3", function() ui.nav_file(3) end)
+vmap("n", "<leader>a4", function() ui.nav_file(4) end)
