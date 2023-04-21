@@ -77,14 +77,6 @@ require('lazy').setup({
     },
   },
 
-  { 
-    'kaiuri/nvim-juliana',
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'juliana'
-    end,
-  },
-
   { -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
@@ -127,17 +119,6 @@ require('lazy').setup({
     end,
   },
   { 'mbbill/undotree' },
-  {
-    "stevearc/dressing.nvim",
-    event = "BufEnter",
-    config = function()
-        require("dressing").setup {
-            select = {
-                backend = { "telescope", "fzf", "builtin" },
-            },
-        }
-    end,
-  },
   { import = 'custom.plugins' },
 }, {})
 
