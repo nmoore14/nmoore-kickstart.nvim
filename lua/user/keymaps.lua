@@ -26,9 +26,6 @@ vmap('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 -- Aerial
 vmap('n', '<C-\\>', ':AerialToggle!<CR>', { noremap = true, silent = true })
 
--- Neobuddy
-vmap('n', '<leader>n', ':Navbuddy<CR>', { noremap = true, silent = true })
-
 -- Telescope
 vmap('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vmap('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
