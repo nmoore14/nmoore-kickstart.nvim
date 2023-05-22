@@ -44,6 +44,7 @@ vmap('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]e
 vmap('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vmap('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vmap('n', '<leader>sk', require('telescope.builtin').keymaps, { desc = '[S]earch [K]eymaps' })
+vmap('n', '<leader>fa', require('telescope.builtin').marks, { desc = 'Search Marks' })
 
 vmap('n', '<leader>rn', vim.lsp.buf.rename, { desc = '[R]e[n]ame' })
 vmap('n', '<leader>ca', vim.lsp.buf.code_action, { desc = '[C]ode [A]ction' })
