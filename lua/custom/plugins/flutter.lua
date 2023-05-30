@@ -48,7 +48,7 @@ return {
         auto_open_browser = false, -- Automatically opens devtools in the browser
       },
       outline = {
-        auto_open = true -- if true this will open the outline automatically when it is first populated
+        auto_open = true, -- if true this will open the outline automatically when it is first populated
       },
       lsp = {
         color = { -- show the derived colours for dart variables
