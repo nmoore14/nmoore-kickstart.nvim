@@ -30,6 +30,10 @@ vmap('n', '<C-\\>', ':AerialToggle!<CR>', { noremap = true, silent = true })
 vmap('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vmap('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 
+-- Neogen
+vmap('n', '<leader>ng', ':lua require("neogen").generate()<CR>', { desc = '[N]eogen [G]enerate annotation' })
+vmap('n', '<leader>nf', ':lua require("neogen").generate({ type = "func" })<CR>', { desc = '[N]eogen Generate [F]unction annotation' })
+
 vmap('n', '<leader>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
