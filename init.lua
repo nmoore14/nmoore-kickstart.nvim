@@ -331,7 +331,6 @@ local servers = {
   -- rust_analyzer = {},
   tsserver = {},
   volar = {},
-
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
