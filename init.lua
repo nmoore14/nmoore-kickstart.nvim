@@ -329,6 +329,7 @@ local servers = {
   -- gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
+  astro = {},
   tsserver = {},
   volar = {},
   lua_ls = {
