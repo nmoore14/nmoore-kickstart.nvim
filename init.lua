@@ -167,6 +167,15 @@ require('lazy').setup({
     end,
   },
 
+  -- Typescript Tools
+  {
+    'pmizio/typescript-tools.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'neovim/nvim-lspconfig'
+    },
+  },
+
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -407,6 +416,7 @@ local servers = {
   -- pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},
+  volar = {},
 
   lua_ls = {
     Lua = {
@@ -485,6 +495,41 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+  },
+}
+
+-- Typescript tools setup
+require("typescript-tools").setup {
+  on_attach = on_attach,
+  settings = {
+    -- spawn additional tsserver instance to calculate diagnostics on it
+    separate_diagnostic_server = true,
+    -- "change"|"insert_leave" determine when the client asks the server about diagnostic
+    publish_diagnostic_on = "insert_leave",
+    -- array of strings("fix_all"|"add_missing_imports"|"remove_unused")
+    -- specify commands exposed as code_actions
+    expose_as_code_action = {},
+    -- string|nil - specify a custom path to `tsserver.js` file, if this is nil or file under path
+    -- not exists then standard path resolution strategy is applied
+    tsserver_path = nil,
+    -- specify a list of plugins to load by tsserver, e.g., for support `styled-components`
+    -- (see 💅 `styled-components` support section)
+    tsserver_plugins = {},
+    -- this value is passed to: https://nodejs.org/api/cli.html#--max-old-space-sizesize-in-megabytes
+    -- memory limit in megabytes or "auto"(basically no limit)
+    tsserver_max_memory = "auto",
+    -- described below
+    tsserver_file_preferences = {
+      includeInlayParameterNameHints = "all",
+      includeCompletionsForModuleExports = true,
+      quotePreference = "auto",
+    },
+    tsserver_format_options = {
+      allowIncompleteCompletions = false,
+      allowRenameOfImportPath = false,
+    },
+    -- mirror of VSCode's `typescript.suggest.completeFunctionCalls`
+    complete_function_calls = false,
   },
 }
 

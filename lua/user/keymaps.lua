@@ -85,8 +85,8 @@ map("v", ">", ">gv", options)
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 
-vmap("n", "<leader>a", mark.add_file)
-vmap("n", "<leader>am", ui.toggle_quick_menu)
+vmap("n", "<leader>h", mark.add_file)
+vmap("n", "<leader>hm", ui.toggle_quick_menu)
 
 vmap('n', '<leader>al', "<cmd>Telescope harpoon marks<CR>", { desc = 'Telescope Harpoon Marks' })
 
