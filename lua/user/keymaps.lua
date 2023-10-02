@@ -47,7 +47,7 @@ vmap('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]e
 vmap('n', '<leader>sk', require('telescope.builtin').keymaps, { desc = '[S]earch [K]eymaps' })
 vmap('n', '<leader>fa', require('telescope.builtin').marks, { desc = 'Search Marks' })
 
-vmap('n', '<leader>rn', vim.lsp.buf.rename, { desc = '[R]e[n]ame' })
+vmap('n', '<leader>rn', ':IncRename', { desc = '[R]e[n]ame' })
 vmap('n', '<leader>ca', vim.lsp.buf.code_action, { desc = '[C]ode [A]ction' })
 
 vmap('n', 'gd', vim.lsp.buf.definition, { desc = '[G]oto [D]efinition' })
