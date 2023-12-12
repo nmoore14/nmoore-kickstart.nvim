@@ -94,3 +94,13 @@ vmap("n", "<leader>a1", function() ui.nav_file(1) end)
 vmap("n", "<leader>a2", function() ui.nav_file(2) end)
 vmap("n", "<leader>a3", function() ui.nav_file(3) end)
 vmap("n", "<leader>a4", function() ui.nav_file(4) end)
+
+-- Run gofmt + goimport on save
+local format_sync_grp = vim.api.nvim_create_augroup("GoImport", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function()
+   require('go.format').goimport()
+  end,
+  group = format_sync_grp,
+})
