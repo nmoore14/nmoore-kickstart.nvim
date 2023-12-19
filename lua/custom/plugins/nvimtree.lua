@@ -39,7 +39,12 @@ return {
         width = function()
           return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
         end,
-      }
+      },
+      update_focused_file = {
+        enable = true,
+        update_root = false,
+        ignore_list = {},
+      },
     })
   end
 }
