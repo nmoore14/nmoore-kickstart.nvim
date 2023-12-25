@@ -82,18 +82,27 @@ map("v", "<", "<gv", options)
 map("v", ">", ">gv", options)
 
 -- Harpoon keymaps
-local mark = require("harpoon.mark")
+local harpoon = require("harpoon")
 local ui = require("harpoon.ui")
 
-vmap("n", "<leader>h", mark.add_file)
-vmap("n", "<leader>hm", ui.toggle_quick_menu)
+vmap("n", "<leader>h", function ()
+  harpoon:list():append()
+end)
 
-vmap('n', '<leader>al', "<cmd>Telescope harpoon marks<CR>", { desc = 'Telescope Harpoon Marks' })
+vmap("n", "<leader>hm", function ()
+  harpoon.ui:toggle_quick_menu(harpoon:list())
+end)
 
-vmap("n", "<leader>a1", function() ui.nav_file(1) end)
-vmap("n", "<leader>a2", function() ui.nav_file(2) end)
-vmap("n", "<leader>a3", function() ui.nav_file(3) end)
-vmap("n", "<leader>a4", function() ui.nav_file(4) end)
+vmap("n", "<leader>a1", function() harpoon:list():select(1) end)
+vmap("n", "<leader>a2", function() harpoon:list():select(2) end)
+vmap("n", "<leader>a3", function() harpoon:list():select(3) end)
+vmap("n", "<leader>a4", function() harpoon:list():select(4) end)
+
+-- Toggle previous & next buffers stored within Harpoon list
+vmap("n", "<leader>hp", function() harpoon:list():prev() end)
+vmap("n", "<leader>hn", function() harpoon:list():next() end)
+
+map("n", "<leander>ss", "<cmd>lua require('sg.extensions.telescope').fuzzy_search_results()<CR>", options)
 
 -- Run gofmt + goimport on save
 local format_sync_grp = vim.api.nvim_create_augroup("GoImport", {})
