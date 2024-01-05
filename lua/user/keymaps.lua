@@ -20,17 +20,20 @@ map("n", "<S-Tab>", ":bp<CR>", options)
 map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { noremap = true, expr = true, silent = true })
 map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { noremap = true, expr = true, silent = true })
 
--- Nvim-Tree
-vmap('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
-
--- Telescope
-vmap('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-vmap('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+-- Neo-Tree
+vmap('n', '<C-n>', '<CMD>Neotree reveal float<CR>', options)
 
 -- Neogen
 vmap('n', '<leader>ng', ':lua require("neogen").generate()<CR>', { desc = '[N]eogen [G]enerate annotation' })
 vmap('n', '<leader>nf', ':lua require("neogen").generate({ type = "func" })<CR>', { desc = '[N]eogen Generate [F]unction annotation' })
 
+-- Notify
+vmap('n', '<ESC>', "<CMD>lua require('notify').dismiss()<CR>", options)
+vmap('i', '<C-ESC>', "<CMD>lua require('notify').dismiss()<CR>", options)
+
+-- Telescope
+vmap('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
+vmap('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vmap('n', '<leader>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
