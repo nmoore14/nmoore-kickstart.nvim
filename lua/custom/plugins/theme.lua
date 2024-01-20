@@ -1,46 +1,49 @@
 return {
-  'ray-x/starry.nvim',
-  config = function ()
-    require('starry').setup({
-      border = false, -- Split window borders
-      italics = {
-        comments = true, -- Italic comments
-        strings = false, -- Italic strings
-        keywords = true, -- Italic keywords
-        functions = false, -- Italic functions
-        variables = false -- Italic variables
-      },
-      contrast = { -- Select which windows get the contrast background
-        enable = true, -- Enable contrast
-        terminal = true, -- Darker terminal
-        filetypes = {}, -- Which filetypes get darker? e.g. *.vim, *.cpp, etc.
-      },
-      text_contrast = {
-        lighter = false, -- Higher contrast text for lighter style
-        darker = false -- Higher contrast text for darker style
-      },
-      disable = {
-        background = false, -- true: transparent background
-        term_colors = false, -- Disable setting the terminal colors
-        eob_lines = false -- Make end-of-buffer lines invisible
-      },
-      style = {
-        name = 'mariana', -- Theme style name (moonlight, earliestsummer, etc.)
-        -- " other themes: dracula, oceanic, dracula_blood, 'deep ocean', darker, palenight, monokai, mariana, emerald, middlenight_blue
-        disable = {},  -- a list of styles to disable, e.g. {'bold', 'underline'}
-        fix = true,
-        darker_contrast = false, -- More contrast for darker style
-        daylight_swith = false, -- Enable day and night style switching
-        deep_black = false, -- Enable a deeper black background
-      },
-      custom_colors = {
-        variable = '#f797d7',
-      },
-      custom_highlights = {
-        LineNr = { fg = '#777777' },
-        Idnetifier = { fg = '#ff4797' },
-      }
-    })
-    vim.cmd[[colorscheme starry]]
-  end
+    "EdenEast/nightfox.nvim",
+    config = function ()
+        require('nightfox').setup({
+            options = {
+                -- Compiled file's destination location
+                compile_path = vim.fn.stdpath("cache") .. "/nightfox",
+                compile_file_suffix = "_compiled", -- Compiled file suffix
+                transparent = false,     -- Disable setting background
+                terminal_colors = true,  -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
+                dim_inactive = false,    -- Non focused panes set to alternative background
+                module_default = true,   -- Default enable value for modules
+                colorblind = {
+                    enable = false,        -- Enable colorblind support
+                    simulate_only = false, -- Only show simulated colorblind colors and not diff shifted
+                    severity = {
+                        protan = 0,          -- Severity [0,1] for protan (red)
+                        deutan = 0,          -- Severity [0,1] for deutan (green)
+                        tritan = 0,          -- Severity [0,1] for tritan (blue)
+                    },
+                },
+                styles = {               -- Style to be applied to different syntax groups
+                    comments = "NONE",     -- Value is any valid attr-list value `:help attr-list`
+                    conditionals = "NONE",
+                    constants = "NONE",
+                    functions = "italic",
+                    keywords = "italic",
+                    numbers = "NONE",
+                    operators = "NONE",
+                    strings = "NONE",
+                    types = "NONE",
+                    variables = "NONE",
+                },
+                inverse = {             -- Inverse highlight for different types
+                    match_paren = false,
+                    visual = false,
+                    search = false,
+                },
+                modules = {             -- List of various plugins and additional options
+                    -- ...
+                },
+            },
+            palettes = {},
+            specs = {},
+            groups = {},
+        })
+        vim.cmd("colorscheme nightfox")
+    end
 }
