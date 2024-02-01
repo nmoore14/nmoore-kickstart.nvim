@@ -1,49 +1,31 @@
 return {
-    "EdenEast/nightfox.nvim",
+    'rmehri01/onenord.nvim',
     config = function ()
-        require('nightfox').setup({
-            options = {
-                -- Compiled file's destination location
-                compile_path = vim.fn.stdpath("cache") .. "/nightfox",
-                compile_file_suffix = "_compiled", -- Compiled file suffix
-                transparent = false,     -- Disable setting background
-                terminal_colors = true,  -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
-                dim_inactive = false,    -- Non focused panes set to alternative background
-                module_default = true,   -- Default enable value for modules
-                colorblind = {
-                    enable = false,        -- Enable colorblind support
-                    simulate_only = false, -- Only show simulated colorblind colors and not diff shifted
-                    severity = {
-                        protan = 0,          -- Severity [0,1] for protan (red)
-                        deutan = 0,          -- Severity [0,1] for deutan (green)
-                        tritan = 0,          -- Severity [0,1] for tritan (blue)
-                    },
-                },
-                styles = {               -- Style to be applied to different syntax groups
-                    comments = "NONE",     -- Value is any valid attr-list value `:help attr-list`
-                    conditionals = "NONE",
-                    constants = "NONE",
-                    functions = "italic",
-                    keywords = "italic",
-                    numbers = "NONE",
-                    operators = "NONE",
-                    strings = "NONE",
-                    types = "NONE",
-                    variables = "NONE",
-                },
-                inverse = {             -- Inverse highlight for different types
-                    match_paren = false,
-                    visual = false,
-                    search = false,
-                },
-                modules = {             -- List of various plugins and additional options
-                    -- ...
-                },
+        require('onenord').setup({
+            theme = 'dark', -- "dark" or "light". Alternatively, remove the option and set vim.o.background instead
+            borders = true, -- Split window borders
+            fade_nc = false, -- Fade non-current windows, making them more distinguishable
+            -- Style that is applied to various groups: see `highlight-args` for options
+            styles = {
+                comments = "italic",
+                strings = "NONE",
+                keywords = "italic",
+                functions = "NONE",
+                variables = "NONE",
+                diagnostics = "underline",
             },
-            palettes = {},
-            specs = {},
-            groups = {},
+            disable = {
+                background = false, -- Disable setting the background color
+                float_background = false, -- Disable setting the background color for floating windows
+                cursorline = true, -- Disable the cursorline
+                eob_lines = true, -- Hide the end-of-buffer lines
+            },
+            -- Inverse highlight for different groups
+            inverse = {
+                match_paren = true,
+            },
+            custom_highlights = {}, -- Overwrite default highlight groups
+            custom_colors = {}, -- Overwrite default colors
         })
-        vim.cmd("colorscheme nightfox")
     end
 }
