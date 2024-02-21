@@ -231,6 +231,11 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
+-- Scrolloff
+vim.o.scrolloff = 100
+
+vim.o.cursorline = true
+
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
@@ -413,8 +418,6 @@ local servers = {
   -- pyright = {},
   -- rust_analyzer = {},
   tsserver = {},
-  volar = {},
-
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
