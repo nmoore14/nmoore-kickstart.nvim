@@ -70,6 +70,9 @@ vmap('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic messag
 vmap('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 vmap('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
+-- Aerial keymaps
+vmap('n', '<leader>at', '<CMD>AerialToggle<CR>', { desc = "Toggle Aerial Document outline" })
+
 -- Custom command keymaps
 vim.api.nvim_create_user_command(
   "DiffCommitFile",
