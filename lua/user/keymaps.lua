@@ -20,6 +20,9 @@ map("n", "<S-Tab>", ":bp<CR>", options)
 map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { noremap = true, expr = true, silent = true })
 map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { noremap = true, expr = true, silent = true })
 
+-- Neotree
+map('n', '<C-n>', "<CMD>Neotree float<CR>", { desc = "[N]eotree" })
+
 -- Neogen
 vmap('n', '<leader>ng', ':lua require("neogen").generate()<CR>', { desc = '[N]eogen [G]enerate annotation' })
 vmap('n', '<leader>nf', ':lua require("neogen").generate({ type = "func" })<CR>', { desc = '[N]eogen Generate [F]unction annotation' })

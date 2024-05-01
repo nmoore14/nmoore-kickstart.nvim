@@ -5,7 +5,6 @@ return { -- Add indentation guides even on blank lines
   config = function ()
     vim.opt.list = true
     vim.opt.listchars:append "space:⋅"
-    vim.opt.listchars:append "eol:↴"
 
     local highlight = {
         "RainbowRed",
@@ -33,6 +32,10 @@ return { -- Add indentation guides even on blank lines
       indent = {
         highlight = highlight,
         tab_char = "│"
+      },
+      whitespace = {
+        highlight = highlight,
+        remove_blankline_trail = true
       },
       scope = {
         enabled = true,
