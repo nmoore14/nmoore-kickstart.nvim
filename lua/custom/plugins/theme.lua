@@ -1,16 +1,12 @@
 return {
-  "scottmckendry/cyberdream.nvim",
+  "neanias/everforest-nvim",
+  version = false,
   lazy = false,
-  priority = 1000,
+  priority = 1000, -- make sure to load this before all the other start plugins
+  -- Optional; default configuration will be used if setup isn't called.
   config = function()
-    require("cyberdream").setup({
-      -- Recommended - see "Configuring" below for more config options
-      transparent = true,
-      italic_comments = true,
-      hide_fillchars = true,
-      borderless_telescope = true,
-      terminal_colors = true,
+    require("everforest").setup({
+      vim.cmd([[colorscheme everforest]])
     })
-    vim.cmd("colorscheme cyberdream") -- set the colorscheme
   end,
 }
